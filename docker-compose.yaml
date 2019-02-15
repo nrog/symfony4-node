@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  engine:
+    image: nrog/symfony4-node
+    ports:
+      - "81:80"
+    volumes:
+      - ./docker/000-default.conf:/etc/apache2/sites-enabled/000-default.conf:ro
+      - .:/var/www/html:rw
+
+  db:
+    image: mariadb:10.1
